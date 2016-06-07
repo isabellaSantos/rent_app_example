@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col s4 offset-s4 card-panel">
+      <h3><%= t(:log_in) %></h3>
+
+      <div class="row">
+        <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: 'col s12' } do |f| %>
+            <div class="row">
+              <div class="input-field col s12">
+                <%= f.email_field :email, autofocus: true, class: 'validate', placeholder: 'Email' %>
+                <%= f.label :email %>
+              </div>
+              <div class="input-field col s12">
+                <%= f.password_field :password, autocomplete: 'off', class: 'validate', placeholder: 'Senha' %>
+                <%= f.label :password %>
+              </div>
+            </div>
+            <div class="actions center-align">
+              <%= f.submit t(:log_in), class: 'btn waves-effect waves-light ' %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

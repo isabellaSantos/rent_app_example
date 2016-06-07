@@ -1,0 +1,26 @@
+<div class="row">
+  <% unless @manage_product.persisted? %>
+      <div class="input-field col s12">
+        <%= f.select :product_id, options_for_select(Product.all.map { |pc| [pc.name, pc.id] }),
+                     {}, class: 'browser-default' %>
+      </div>
+  <% end %>
+  <div class="input-field col s12">
+    <%= f.text_field :manufacture_date, class: 'date-picker',
+                     placeholder: human_attribute_name(ManageProduct, :manufacture_date) %>
+    <%= f.label :manufacture_date %>
+  </div>
+  <% if @manage_product.persisted? %>
+      <div class="input-field col s12">
+        <%= f.text_field :number, class: 'date-picker',
+                          placeholder: human_attribute_name(ManageProduct, :number) %>
+        <%= f.label :number %>
+      </div>
+  <% end %>
+  <% unless @manage_product.persisted? %>
+      <div class="input-field col s12">
+        <%= text_field_tag :quantity, 1, min: 1, class: 'validate', placeholder: t(:quantity) %>
+        <%= label_tag :quantity, t(:quantity) %>
+      </div>
+  <% end %>
+</div>

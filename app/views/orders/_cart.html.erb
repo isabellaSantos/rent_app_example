@@ -1,0 +1,13 @@
+<%= form_for @order do |f| %>
+    <h5><%= plural_resource_name(LineItem) %></h5>
+    <div id="line_items">
+      <%= f.fields_for :line_items do |line_item_form| %>
+        <%= render 'line_item_fields', f: line_item_form %>
+      <% end %>
+    </div>
+    <div class="actions center-align">
+      <%= link_to_add_association t(:add_line_item), f, :line_items,
+                                  class: 'btn waves-effect waves-light blue darken-4' %>
+      <%= f.submit t(:next_state), class: 'btn waves-effect waves-light teal darken-4' %>
+    </div>
+<% end %>

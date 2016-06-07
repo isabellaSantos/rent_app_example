@@ -1,0 +1,16 @@
+<div class="nested-fields">
+  <div class="row">
+    <div class="input-field col s5">
+      <%= f.text_field :value, placeholder: human_attribute_name(Payment, :value)  %>
+      <%= f.label :value %>
+    </div>
+    <div class="input-field col s5">
+      <%= f.text_field :due_date, class: 'date-picker', placeholder: human_attribute_name(Payment, :due_date)  %>
+      <%= f.label :due_date %>
+    </div>
+    <div class="input-field col s2">
+      <%= link_to_remove_association t(:remove_line_item), f,
+                                     class: 'btn waves-effect waves-light red darken-4 white-text' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aluguel de Produtos</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="grey lighten-5">
+  <header>
+    <nav class="indigo darken-4">
+      <div class="nav-wrapper">
+        <ul id="nav-app" class="right">
+          <li><%= link_to t(:log_out), destroy_user_session_path, method: :delete %></li>
+        </ul>
+      </div>
+    </nav>
+    <ul class="side-nav fixed">
+      <li><%= link_to plural_resource_name(User), users_path if can? :display, User %></li>
+      <li><%= link_to plural_resource_name(Customer), customers_path if can? :display, Customer %></li>
+      <li><%= link_to plural_resource_name(ProductCategory),
+                      product_categories_path if can? :display, ProductCategory %></li>
+      <li><%= link_to plural_resource_name(Product), products_path if can? :display, Product %></li>
+      <li><%= link_to t(:manage_products), manage_products_path if can? :display, ManageProduct %></li>
+      <li><%= link_to plural_resource_name(Order), orders_path if can? :display, Order %></li>
+    </ul>
+  </header>
+  <div class="main">
+    <div class="row">
+      <div class="col s12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

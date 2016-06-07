@@ -1,0 +1,39 @@
+<%= form_for @order, url: order_update_state_path(@order.number, 'payment'), html: { method: :put } do |f| %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.select :customer_id, options_for_select(Customer.all.map { |c| [c.name, c.id] }),
+                   {}, class: 'browser-default' %>
+    </div>
+    <div class="input-field col s6">
+      <%= f.text_field :initial_date, class: 'date-picker',
+                       placeholder: human_attribute_name(Order, :initial_date) %>
+    </div>
+    <div class="input-field col s6">
+      <%= number_field_tag :months_quantity, 1, placeholder: t(:months_quantity) %>
+    </div>
+  </div>
+  <div class="row">
+    <h5><%= t(:delivery_address) %></h5>
+    <%= f.fields_for :address, Address.new do |address_form| %>
+        <div class="input-field col s12">
+          <%= address_form.text_field :street, placeholder: human_attribute_name(Address, :street) %>
+          <%= address_form.label :street %>
+        </div>
+        <div class="input-field col s12">
+          <%= address_form.text_field :district, placeholder: human_attribute_name(Address, :district) %>
+          <%= address_form.label :district %>
+        </div>
+        <div class="input-field col s6">
+          <%= address_form.text_field :city, placeholder: human_attribute_name(Address, :city) %>
+          <%= address_form.label :city %>
+        </div>
+        <div class="input-field col s6">
+          <%= address_form.text_field :zipcode, placeholder: human_attribute_name(Address, :zipcode) %>
+          <%= address_form.label :zipcode %>
+        </div>
+    <% end %>
+  </div>
+  <div class="actions center-align">
+    <%= f.submit t(:next_state), class: 'btn waves-effect waves-light teal darken-4' %>
+  </div>
+<% end %>

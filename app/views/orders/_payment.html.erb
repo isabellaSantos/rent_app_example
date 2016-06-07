@@ -1,0 +1,13 @@
+<%= form_for @order, url: order_update_state_path(@order.number, 'payment'), html: { method: :put } do |f| %>
+    <h5><%= plural_resource_name(Payment) %></h5>
+    <div id="payments">
+      <%= f.fields_for :payments do |payment_form| %>
+          <%= render 'payment_fields', f: payment_form %>
+      <% end %>
+    </div>
+    <div class="actions center-align">
+      <%= link_to_add_association t(:add_payment), f, :payments,
+                                  class: 'btn waves-effect waves-light blue darken-4' %>
+      <%= f.submit t(:next_state), class: 'btn waves-effect waves-light teal darken-4' %>
+    </div>
+<% end %>

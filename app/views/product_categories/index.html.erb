@@ -1,0 +1,24 @@
+<h2><%= plural_resource_name(ProductCategory) %></h2>
+
+<div class="card-panel">
+  <table class="responsive-table">
+    <thead>
+    <th><%= human_attribute_name ProductCategory, :name %></th>
+    <th></th>
+    </thead>
+    <tbody>
+    <% @product_categories.each do |product_category| %>
+        <tr>
+          <td><%= product_category.name %></td>
+          <td>
+            <%= link_to t(:edit), edit_product_category_path(product_category),
+                        class: 'btn btn-small blue darken-4 white-text' if can? :manage, ProductCategory %>
+            <%= link_to t(:destroy), product_category_path(product_category),
+                        class: 'btn btn-small red darken-4 white-text',
+                        method: :delete if can? :manage, ProductCategory %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

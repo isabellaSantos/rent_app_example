@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="input-field col s12">
+    <%= f.text_field :name, class: 'validate', placeholder: human_attribute_name(Product, :name) %>
+    <%= f.label :name %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.text_field :description, class: 'validate', placeholder: human_attribute_name(Product, :description) %>
+    <%= f.label :description %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.text_field :minimum_price, class: 'validate', placeholder: human_attribute_name(Product, :minimum_price) %>
+    <%= f.label :minimum_price %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.select :product_category_id, options_for_select(ProductCategory.all.map { |pc| [pc.name, pc.id] }),
+        {}, class: 'browser-default' %>
+  </div>
+</div>
+

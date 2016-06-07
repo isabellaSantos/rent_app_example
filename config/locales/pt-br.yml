@@ -1,0 +1,101 @@
+pt-br:
+  manage_products: G. de Produtos
+  new: Novo
+  new_resource: "Novo %{resource}"
+  edit: Editar
+  edit_resource: "Editar %{resource}"
+  create: Criar
+  update: Atualizar
+  destroy: Excluir
+  log_in: Log in
+  log_out: Sair
+  quantity: Quantidade
+  to_maintenance: Colocar Em Manutenção
+  to_available: Colocar Disponível
+  add_line_item: Adicionar item
+  add_payment: Adicionar Pagamento
+  remove_line_item: Remover Item
+  remove_payment: Remover Pagamento
+  next_state: Avançar
+  months_quantity: Meses locado
+  delivery_address: Endereço de Entrega
+  unauthorized_title: Ops!
+  unauthorized_message: Você não tem permissão para acessar esta página.
+  errors:
+    messages:
+      total_should_be_eq_or_gt_than_minimum_price: Total deve ser igual ou maior que o preço mínimo do produto
+  activerecord:
+    attributes:
+      address:
+        street: Rua
+        district: Bairro
+        city: Cidade
+        zipcode: CEP
+      customer:
+        cpf: CPF
+        phone: Telefone
+      line_item:
+        total: Total
+        manage_product_id: Produto
+      manage_product:
+        number: Número
+        manufacture_date: Data de Fabricação
+        product_id: Produto
+        state: Status
+        state_available: Disponível
+        state_leased: Locado
+        state_maintenance: Em Manutenção
+      order:
+        number: Número
+        total: Total
+        customer_id: Cliente
+        initial_date: Data de Início
+        final_date: Data de Término
+      payment:
+        number: Número
+        due_date: Data de Vencimento
+        paid_at: Pago Em
+        value: Valor
+        customer_id: Cliente
+        order_id: Pedido
+      product:
+        name: Nome
+        description: Descrição
+        minimum_price: Preço Mínimo
+        product_category_id: Categoria
+      product_category:
+        name: Nome
+      user:
+        name: Nome
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação da senha
+        admin: Usuário Administrador
+    models:
+      address:
+        one:   Endereço
+        other: Endereços
+      customer:
+        one:   Cliente
+        other: Clientes
+      line_item:
+        one:   Item do Pedido
+        other: Itens do Pedido
+      manage_product:
+        one:   Gerenciamento de Produto
+        other: Gerenciamento de Produtos
+      order:
+        one:   Pedido
+        other: Pedidos
+      payment:
+        one:   Pagamento
+        other: Pagamentos
+      product:
+        one:   Produto
+        other: Produtos
+      product_category:
+        one:   Categoria de Produtos
+        other: Categorias de Produtos
+      user:
+        one:   Usuário
+        other: Usuários

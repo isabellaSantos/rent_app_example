@@ -1,0 +1,24 @@
+<h2><%= t(:edit_resource, resource: ManageProduct.model_name.human) %></h2>
+
+<div class="card-panel">
+  <%= form_for @manage_product, html: { class: 'col s12' } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+      <div class="actions center-align">
+        <%= f.submit t(:update), class: 'btn waves-effect waves-light teal darken-4' %>
+      </div>
+  <% end %>
+</div>
+
+<div class="card-panel">
+  <div class="actions">
+    <% if @manage_product.can_maintenance? %>
+        <%= link_to t(:to_maintenance), manage_product_to_state_path(@manage_product, state: 'maintenance'),
+                    class: 'btn waves-effect waves-light red darken-1', method: :put %>
+    <% end %>
+    <% if @manage_product.can_available? %>
+        <%= link_to t(:to_available), manage_product_to_state_path(@manage_product, state: 'available'),
+                    class: 'btn waves-effect waves-light teal darken-1', method: :put %>
+    <% end %>
+  </div>
+</div>
+

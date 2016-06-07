@@ -1,0 +1,10 @@
+<h2><%= t(:new_resource, resource: ProductCategory.model_name.human) %></h2>
+
+<div class="card-panel">
+  <%= form_for @product_category, html: { class: 'col s12' } do |f| %>
+      <%= render partial: 'form', locals: { f: f } %>
+      <div class="actions center-align">
+        <%= f.submit t(:create), class: 'btn waves-effect waves-light teal darken-4' %>
+      </div>
+  <% end %>
+</div>

@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="input-field col s12">
+    <%= f.text_field :name, class: 'validate', placeholder: human_attribute_name(User, :name) %>
+    <%= f.label :name %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.email_field :email, class: 'validate', placeholder: human_attribute_name(User, :email) %>
+    <%= f.label :email %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.password_field :password, autocomplete: 'off', class: 'validate',
+                         placeholder: human_attribute_name(User, :password) %>
+    <%= f.label :password %>
+  </div>
+  <div class="input-field col s12">
+    <%= f.password_field :password_confirmation, autocomplete: 'off', class: 'validate',
+                         placeholder: human_attribute_name(User, :password_confirmation) %>
+    <%= f.label :password_confirmation %>
+  </div>
+  <% if current_user.admin? %>
+    <div class="input-field col s12">
+      <%= check_box_tag 'user[role]', 'admin', @user.admin?, class: 'filled-in' %>
+      <%= f.label :admin %>
+    </div>
+  <% end %>
+</div>

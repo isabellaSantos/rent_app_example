@@ -1,0 +1,60 @@
+<div class="card-panel">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s6">
+          <%= link_to Customer.model_name.human, '#customer', class: 'active' %>
+        </li>
+        <li class="tab col s6">
+          <%= link_to Address.model_name.human, '#address' %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="card-panel">
+  <div class="row">
+    <div id="customer" class="col s12">
+      <div class="row">
+        <%= f.fields_for :user, @user do |user_form| %>
+            <div class="input-field col s12">
+              <%= user_form.text_field :name, placeholder: human_attribute_name(User, :name) %>
+              <%= user_form.label :name %>
+            </div>
+            <div class="input-field col s12">
+              <%= user_form.text_field :email, placeholder: human_attribute_name(User, :email) %>
+              <%= user_form.label :email %>
+            </div>
+        <% end %>
+        <div class="input-field col s6">
+          <%= f.text_field :cpf, placeholder: human_attribute_name(Customer, :cpf) %>
+          <%= f.label :cpf %>
+        </div>
+        <div class="input-field col s6">
+          <%= f.text_field :phone, placeholder: human_attribute_name(Customer, :phone) %>
+          <%= f.label :phone %>
+        </div>
+      </div>
+    </div>
+    <div id="address" class="col s12">
+      <%= f.fields_for :address, @address do |address_form| %>
+          <div class="input-field col s12">
+            <%= address_form.text_field :street, placeholder: human_attribute_name(Address, :street) %>
+            <%= address_form.label :street %>
+          </div>
+          <div class="input-field col s12">
+            <%= address_form.text_field :district, placeholder: human_attribute_name(Address, :district) %>
+            <%= address_form.label :district %>
+          </div>
+          <div class="input-field col s6">
+            <%= address_form.text_field :city, placeholder: human_attribute_name(Address, :city) %>
+            <%= address_form.label :city %>
+          </div>
+          <div class="input-field col s6">
+            <%= address_form.text_field :zipcode, placeholder: human_attribute_name(Address, :zipcode) %>
+            <%= address_form.label :zipcode %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

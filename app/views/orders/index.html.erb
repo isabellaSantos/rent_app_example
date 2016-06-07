@@ -1,0 +1,21 @@
+<h2><%= plural_resource_name(Order) %></h2>
+
+<div class="card-panel">
+  <table class="responsive-table">
+    <thead>
+    <th><%= human_attribute_name Order, :number %></th>
+    <th></th>
+    </thead>
+    <tbody>
+    <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.number %></td>
+          <td>
+            <%# link_to t(:edit), edit_order_path(order.number),
+                        class: 'btn btn-small blue darken-4 white-text' if can? :manage, Order %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

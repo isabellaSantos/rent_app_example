@@ -1,0 +1,8 @@
+<h2><%= t(:new_resource, resource: Customer.model_name.human) %></h2>
+
+<%= form_for @customer, html: { class: 'col s12' } do |f| %>
+    <%= render partial: 'form', locals: { f: f } %>
+    <div class="actions center-align">
+      <%= f.submit t(:create), class: 'btn waves-effect waves-light teal darken-4' %>
+    </div>
+<% end %>

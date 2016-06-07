@@ -1,0 +1,23 @@
+<h2><%= plural_resource_name(Customer) %></h2>
+
+<div class="card-panel">
+  <table class="responsive-table">
+    <thead>
+    <th><%= human_attribute_name User, :name %></th>
+    <th></th>
+    </thead>
+    <tbody>
+    <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.user.name rescue '' %></td>
+          <td>
+            <%= link_to t(:edit), edit_customer_path(customer),
+                        class: 'btn btn-small blue darken-4 white-text' if can? :manage, Customer %>
+            <%= link_to t(:destroy), customer_path(customer),
+                        class: 'btn btn-small red darken-4 white-text', method: :delete if can? :manage, Customer %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

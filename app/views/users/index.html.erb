@@ -1,0 +1,25 @@
+<h2><%= plural_resource_name(User) %></h2>
+
+<div class="card-panel">
+  <table class="responsive-table">
+    <thead>
+    <th><%= human_attribute_name User, :name %></th>
+    <th><%= human_attribute_name User, :email %></th>
+    <th></th>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <%= link_to t(:edit), edit_user_path(user),
+                        class: 'btn btn-small blue darken-4 white-text' if can? :manage, User %>
+            <%= link_to t(:destroy), user_path(user),
+                        class: 'btn btn-small red darken-4 white-text', method: :delete if can? :manage, User %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

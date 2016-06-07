@@ -1,0 +1,10 @@
+<h2><%= t(:edit_resource, resource: User.model_name.human) %></h2>
+
+<div class="card-panel">
+  <%= form_for @user, html: { class: 'col s12' } do |f| %>
+    <%= render partial: 'form', locals: { f: f } %>
+    <div class="actions center-align">
+      <%= f.submit t(:update), class: 'btn waves-effect waves-light teal darken-4' %>
+    </div>
+  <% end %>
+</div>
