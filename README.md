@@ -1,4 +1,4 @@
-Rent App Example
+Rent App Example [![Build Status](https://travis-ci.org/isabellaSantos/rent_app_example.svg?branch=master)](https://travis-ci.org/isabellaSantos/rent_app_example)
 ==================
 
 Projeto teste para aluguel de produtos mensalmente.
